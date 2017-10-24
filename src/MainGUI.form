@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainGUI">
+  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="10" column-count="15" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="12" width="511" height="530"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="61592" class="javax.swing.JButton" binding="btnClear">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="15" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="清空日志"/>
+          <toolTipText value="清空日志信息"/>
+        </properties>
+      </component>
+      <grid id="cd70c" binding="panel2" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="15" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none" title="选择或拖拽源文件，目录中请不要包含空格"/>
+        <children>
+          <component id="dcabf" class="javax.swing.JLabel" binding="labelSrc">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="    源文件"/>
+            </properties>
+          </component>
+          <component id="67d63" class="javax.swing.JLabel" binding="labelDes">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="    目标文件"/>
+            </properties>
+          </component>
+          <component id="6a6c0" class="javax.swing.JTextField" binding="srcPath">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="70f7f" class="javax.swing.JTextField" binding="desPath">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+          <component id="f5a61" class="javax.swing.JButton" binding="btnSelect">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="浏览"/>
+            </properties>
+          </component>
+          <component id="79f24" class="javax.swing.JButton" binding="btnOpen">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="打开"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="1a355" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="1" column="0" row-span="6" col-span="15" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="c83ca" class="javax.swing.JRadioButton" binding="rbDex2Jar">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="DEX2JAR"/>
+              <toolTipText value="将dex文件转成jar包"/>
+            </properties>
+          </component>
+          <component id="40bce" class="javax.swing.JRadioButton" binding="rbJar2Dex">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="JAR2DEX"/>
+              <toolTipText value="将jar包转成二进制的jar包"/>
+            </properties>
+          </component>
+          <component id="66cd8" class="javax.swing.JRadioButton" binding="rbDex">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="提取dex"/>
+              <toolTipText value="选取apk,jar包或zip包，提取dex文件"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="5d68c" binding="jPane">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="15" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ef139" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value=""/>
+              <toolTipText value="日志描述"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="649d5" class="javax.swing.JButton" binding="btnExec">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="15" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="执行"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

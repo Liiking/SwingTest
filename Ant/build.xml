@@ -1,0 +1,15 @@
+<project name="WsTool">
+
+    <taskdef name="jarbundler"
+             classname="net.sourceforge.jarbundler.JarBundler" classpath="lib/jarbundler.jar"/>
+
+    <target name="bundle">
+
+        <jarbundler dir="release"
+                    name="WsTool"
+                    mainclass="WsTool"
+                    jar="SwingTest.jar"/>
+
+    </target>
+
+</project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_swingtest" default="compile.module.swingtest">
+  <dirname property="module.swingtest.basedir" file="${ant.file.module_swingtest}"/>
+  
+  <property name="module.jdk.home.swingtest" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.swingtest" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.swingtest" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.swingtest" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="swingtest.output.dir" value="${module.swingtest.basedir}/../../SwingOutput"/>
+  <property name="swingtest.testoutput.dir" value="${module.swingtest.basedir}/../../SwingOutput/test"/>
+  
+  <path id="swingtest.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="swingtest.module.production.classpath">
+    <path refid="${module.jdk.classpath.swingtest}"/>
+  </path>
+  
+  <path id="swingtest.runtime.production.module.classpath">
+    <pathelement location="${swingtest.output.dir}"/>
+  </path>
+  
+  <path id="swingtest.module.classpath">
+    <path refid="${module.jdk.classpath.swingtest}"/>
+    <pathelement location="${swingtest.output.dir}"/>
+  </path>
+  
+  <path id="swingtest.runtime.module.classpath">
+    <pathelement location="${swingtest.testoutput.dir}"/>
+    <pathelement location="${swingtest.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.swingtest">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.swingtest">
+    <patternset refid="excluded.from.module.swingtest"/>
+  </patternset>
+  
+  <path id="swingtest.module.sourcepath">
+    <dirset dir="${module.swingtest.basedir}/../../SwingTest">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.swingtest" depends="compile.module.swingtest.production,compile.module.swingtest.tests" description="Compile module SwingTest"/>
+  
+  <target name="compile.module.swingtest.production" depends="register.custom.compilers" description="Compile module SwingTest; production classes">
+    <mkdir dir="${swingtest.output.dir}"/>
+    <javac2 destdir="${swingtest.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.swingtest}/javac">
+      <compilerarg line="${compiler.args.swingtest}"/>
+      <bootclasspath refid="swingtest.module.bootclasspath"/>
+      <classpath refid="swingtest.module.production.classpath"/>
+      <src refid="swingtest.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.swingtest"/>
+    </javac2>
+    
+    <copy todir="${swingtest.output.dir}">
+      <fileset dir="${module.swingtest.basedir}/../src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.swingtest.tests" depends="register.custom.compilers,compile.module.swingtest.production" description="compile module SwingTest; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.swingtest" description="cleanup module">
+    <delete dir="${swingtest.output.dir}"/>
+    <delete dir="${swingtest.testoutput.dir}"/>
+  </target>
+</project>
